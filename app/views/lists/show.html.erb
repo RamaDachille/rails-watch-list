@@ -1,1 +1,23 @@
-<h1>List show works</h1>
+<h1>Your List: <strong><%= @list.name %></strong></h1>
+
+<%= link_to "Back to all Lists", lists_path %>
+<br>
+<%= link_to "Add a new Movie", new_list_bookmark_path(@list) %>
+<br>
+<%= link_to "Delete this List", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+
+<p><%= @list.movies.count %> Movies</p>
+
+<% @list.movies.each do |movie| %>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= movie.title %></h5>
+      <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
+      <p class="card-text"><%= bookmark.comment %></p>
+      <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger"%>
+    </div>
+  </div>
+<% end %>
+
+<br>

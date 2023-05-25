@@ -1,1 +1,10 @@
-<h1>List index works</h1>
+<h1>My Lists</h1>
+<%= link_to "Create a new List", new_list_path %>
+<br>
+<p><%= @lists.count %> Lists</p>
+<br>
+<div id="lists">
+  <% @lists.each do |list| %>
+    <h5><%= link_to list.name, list %></h5>
+  <% end %>
+</div>
