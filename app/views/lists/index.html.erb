@@ -5,6 +5,12 @@
 <br>
 <div id="lists">
   <% @lists.each do |list| %>
-    <h5><%= link_to list.name, list %></h5>
+      <div class="card" style="width: 18rem;">
+        <%# <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to list.name, list %></h5>
+        </div>
+    </div>
   <% end %>
 </div>

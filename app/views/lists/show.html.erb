@@ -10,7 +10,7 @@
 
 <% @list.movies.each do |movie| %>
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="<%= movie.poster_url %>" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"><%= movie.title %></h5>
       <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
